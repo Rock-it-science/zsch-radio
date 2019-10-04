@@ -6,6 +6,23 @@
       <p id='weather'>Weather here!</p>
 
       <script>
+
+      //TODO Use promises to make this all run before getURL
+      var weather_time = getWeather();
+      function getWeather(){//Gets weather echoed from server.php
+        var weatherRequest = new XMLHttpRequest();
+        weatherRequest.onreadystatechange = function check(){
+          if(weatherRequest.readyState == 4 && weatherRequest.status == 200){
+            document.getElementById('weather').innerHTML = weatherRequest.responseText;
+            console.log('weather set to: ' + weatherRequest.responseText);
+            return weatherRequest.responseText;
+          }
+        };
+        weatherRequest.open("GET", "getWeather.php", true);
+        weatherRequest.send();
+      }
+
+      console.log(weather_time);
       getURL();
       function getURL(){//Gets URL echoed from server.php
         var urlRequest = new XMLHttpRequest();
@@ -15,21 +32,8 @@
             console.log('URL set to: ' + urlRequest.responseText);
           }
         };
-        urlRequest.open("GET", "server.php", true);
+        urlRequest.open("GET", "server.php?wt="+weather_time, true);
         urlRequest.send();
-      }
-
-      getWeather();
-      function getWeather(){//Gets weather echoed from server.php
-        var weatherRequest = new XMLHttpRequest();
-        weatherRequest.onreadystatechange = function check(){
-          if(weatherRequest.readyState == 4 && weatherRequest.status == 200){
-            document.getElementById('weather').innerHTML = weatherRequest.responseText;
-            console.log('weather set to: ' + weatherRequest.responseText);
-          }
-        };
-        weatherRequest.open("GET", "getWeather.php", true);
-        weatherRequest.send();
       }
       </script>
     </body>
