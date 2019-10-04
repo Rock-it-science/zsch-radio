@@ -2,6 +2,20 @@
 <meta charset="utf-8"/>
 <html>
     <body>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/nO9aot9RgQc"></iframe>
+      <iframe id='player' width="560" height="315" src=""></iframe>
+      <script>
+      getURL();
+      function getURL(){//Gets URL echoed from server.php
+        var urlRequest = new XMLHttpRequest();
+        urlRequest.onreadystatechange = function check(){
+          if(urlRequest.readyState == 4 && urlRequest.status == 200){
+            document.getElementById('player').src = urlRequest.responseText;
+            console.log('URL set to: ' + urlRequest.responseText);
+          }
+        };
+        urlRequest.open("GET", "server.php", true);
+        urlRequest.send();
+      }
+      </script>
     </body>
 </html>

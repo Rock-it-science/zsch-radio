@@ -10,3 +10,7 @@ Ideas:
   - Lots of bandwidth
   - Can't do custom bumpers or transitions
   + No legal issues
+
+Back-end synchronization control:
+1.  PHP
+  % URLs of YouTube playlists stored, and passed to all clients at the same time using AJAX
