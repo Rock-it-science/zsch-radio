@@ -9,14 +9,35 @@
 
       //TODO Use promises to make this all run before getURL
       var weather_time; //Global variable to contain current weather and time
+      var lat, long; //Globals for geo coords
 
-      //Starting functions, with callback to call getURL
-      getWeather(function(){
-        console.log("weather, time: " + weather_time);
-        getURL();
+      //Starting functions, with callback to call getURL (sorrt for the callback hell)
+      getLocation(function(){
+        getWeather(function(){
+          console.log("weather, time: " + weather_time);
+          getURL();
+        });
       });
 
-      //Functino to get weather and time from server
+      //Get geo coordinates of user
+      async function getLocation(callback){
+        let locationPromise = new Promise((resolve, reject) => {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(setCoords);
+          } else {
+            window.alert("Geolocation is not supported by this browser. Some features may not work as intended");
+          }
+          function setCoords(position){
+            lat = position.coords.latitude;
+            long = position.coords.longitude;
+            resolve();
+          }
+        });
+        await locationPromise;
+        callback();
+      }
+
+      //Function to get weather and time from server
       async function getWeather(callback){//Gets weather echoed from server.php
         var weatherRequest = new XMLHttpRequest();
         let weatherPromise = new Promise((resolve, reject) => {
@@ -29,7 +50,7 @@
             }
           };
         });
-        weatherRequest.open("GET", "getWeather.php", true);
+        weatherRequest.open("GET", "getWeather.php?lat="+lat+"&long="+long, true);
         weatherRequest.send();
         await weatherPromise;
         callback();
@@ -38,7 +59,6 @@
       function getURL(){//Gets URL echoed from server.php
         var urlRequest = new XMLHttpRequest();
         urlRequest.onreadystatechange = function check(){
-          console.log(urlRequest.readyState + ", " + urlRequest.status);
           if(urlRequest.readyState == 4 && urlRequest.status == 200){
             document.getElementById('player').src = urlRequest.responseText;
             console.log('URL set to: ' + urlRequest.responseText);
