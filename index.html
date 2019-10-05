@@ -8,25 +8,37 @@
       <script>
 
       //TODO Use promises to make this all run before getURL
-      var weather_time = getWeather();
-      function getWeather(){//Gets weather echoed from server.php
+      var weather_time; //Global variable to contain current weather and time
+
+      //Starting functions, with callback to call getURL
+      getWeather(function(){
+        console.log("weather, time: " + weather_time);
+        getURL();
+      });
+
+      //Functino to get weather and time from server
+      async function getWeather(callback){//Gets weather echoed from server.php
         var weatherRequest = new XMLHttpRequest();
-        weatherRequest.onreadystatechange = function check(){
-          if(weatherRequest.readyState == 4 && weatherRequest.status == 200){
-            document.getElementById('weather').innerHTML = weatherRequest.responseText;
-            console.log('weather set to: ' + weatherRequest.responseText);
-            return weatherRequest.responseText;
-          }
-        };
+        let weatherPromise = new Promise((resolve, reject) => {
+          weatherRequest.onreadystatechange = function check(){
+            if(weatherRequest.readyState == 4 && weatherRequest.status == 200){
+              document.getElementById('weather').innerHTML = weatherRequest.responseText;
+              console.log('weather set to: ' + weatherRequest.responseText);
+              weather_time = weatherRequest.responseText;
+              resolve();
+            }
+          };
+        });
         weatherRequest.open("GET", "getWeather.php", true);
         weatherRequest.send();
+        await weatherPromise;
+        callback();
       }
 
-      console.log(weather_time);
-      getURL();
       function getURL(){//Gets URL echoed from server.php
         var urlRequest = new XMLHttpRequest();
         urlRequest.onreadystatechange = function check(){
+          console.log(urlRequest.readyState + ", " + urlRequest.status);
           if(urlRequest.readyState == 4 && urlRequest.status == 200){
             document.getElementById('player').src = urlRequest.responseText;
             console.log('URL set to: ' + urlRequest.responseText);
