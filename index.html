@@ -49,6 +49,7 @@
               document.getElementById('weather').innerHTML = weatherRequest.responseText;
               console.log('weather set to: ' + weatherRequest.responseText);
               weather_time = weatherRequest.responseText;
+              setBackground(weather_time); //doesn't need to be part ofthe async callback chain
               resolve();
             }
           };
@@ -73,6 +74,27 @@
         };
         PlaylistRequest.open("GET", "server.php?wt="+weather_time, true);
         PlaylistRequest.send();
+      }
+
+      function setBackground(wt){
+        //Split wt
+        var wtarr = wt.split(',');
+        var weather = wtarr[0];
+        var time = wtarr[1];
+
+        //Determine day/night
+        var dn; //Day/night
+        if(time > 6 && time < 18){
+          dn = 'day';
+        } else{
+          dn = 'night';
+        }
+
+        //Get background image path
+        var bgPath = '/backgrounds/'+dn+'/'+weather.toLowerCase()+'.jpg';
+        console.log(bgPath);
+        document.body.style.backgroundImage = 'url(\''+bgPath+'\')';
+        document.body.style.backgroundSize = 'cover';
       }
       </script>
     </body>
