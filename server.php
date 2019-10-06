@@ -2,7 +2,7 @@
 
 $weather_comma_time = $_REQUEST["wt"];
 $weather_time = explode(", ", $weather_comma_time);
-$weather = $weather_time[0];
+$weather = strtolower($weather_time[0]);
 $time = $weather_time[1];
 
 // 2D array of playlist title and ID
@@ -18,7 +18,7 @@ $lists = array(
 $selected = array();
 if($time > 5 && $time <12){ //Morning
   $selected = $lists[3];
-} else if((strpos($weather, 'cloud') !== false) && time > 12 && time < 18){ // Cloudy Afternoon
+} else if((strpos($weather, 'cloud') !== false) && $time < 18 && $time > 12){ // Cloudy Afternoon
   $selected = $lists[0];
 } else if(strpos($weather, 'snow') !== false){ ///Snow
   $selected = $lists[1];

@@ -4,6 +4,7 @@
     <body>
       <iframe id='player' width="560" height="315" src=""></iframe>
       <p id='weather'>Weather here!</p>
+      <p id='currentPlaylist'>Please accept location access request</p>
 
       <script>
 
@@ -13,7 +14,7 @@
 
       //Starting functions, with callback to call getURL (sorrt for the callback hell)
       getLocation(function(){
-        console.log('lat: '+lat+'long: '+long);
+        console.log('lat: '+lat+', long: '+long);
         getWeather(function(){
           console.log("weather, time: " + weather_time);
           getPlaylist();
