@@ -15,19 +15,20 @@ $lists = array(
 );
 
 // Decide which playlist to play
+$selected = array();
 if($time > 5 && $time <12){ //Morning
-  $selectedID = $lists[3][1];
+  $selected = $lists[3];
 } else if((strpos($weather, 'cloud') !== false) && time > 12 && time < 18){ // Cloudy Afternoon
-  $selectedID = $lists[0][1];
+  $selected = $lists[0];
 } else if(strpos($weather, 'snow') !== false){ ///Snow
-  $selectedID = $lists[1][1];
+  $selected = $lists[1];
 } else if((strpos($weather, 'rain') !== false) && time > 18){ // Dark and rainy
-  $selectedID = $lists[2][1];
+  $selected = $lists[2];
 } else{ // Back Catalog
-  $selectedID = $lists[4][1];
+  $selected = $lists[4];
 }
 
 // Assemble and echo selected playlist URL
-$url = "https://youtube.com/embed/videoseries?list=".$selectedID."&autoplay=1";
+$url = $selected[0] . ",https://youtube.com/embed/videoseries?list=".$selected[1]."&autoplay=1";
 echo $url;
  ?>
