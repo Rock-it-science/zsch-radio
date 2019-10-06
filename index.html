@@ -68,6 +68,7 @@
             //Response text format: playlistName, playlistURL
             var playlistInfo = PlaylistRequest.responseText.split(",");
             document.getElementById('player').src = playlistInfo[1];
+            document.getElementById('currentPlaylist').innerHTML = 'Current playlist: '+playlistInfo[0];
             console.log('Playlist set to: ' + playlistInfo[0]);
           }
         };
