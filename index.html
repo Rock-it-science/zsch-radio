@@ -2,7 +2,79 @@
 <meta charset="utf-8"/>
 <html>
     <body>
-      <script src="../howler.js/src/howler.core.js"></script>
-      <script src="radio.js"></script>
+      <iframe id='player' width="560" height="315" src=""></iframe>
+      <p id='weather'>Weather here!</p>
+      <p id='currentPlaylist'>Please accept location access request</p>
+
+      <script>
+
+      //TODO Use promises to make this all run before getURL
+      var weather_time; //Global variable to contain current weather and time
+      var lat, long; //Globals for geo coords
+
+      //Starting functions, with callback to call getURL (sorrt for the callback hell)
+      getLocation(function(){
+        console.log('lat: '+lat+', long: '+long);
+        getWeather(function(){
+          console.log("weather, time: " + weather_time);
+          getPlaylist();
+        });
+      });
+
+      //Get geo coordinates of user
+      async function getLocation(callback){
+        console.log('getting location (1)');
+        let locationPromise = new Promise((resolve, reject) => {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(setCoords);
+          } else {
+            window.alert("Geolocation is not supported by this browser. Some features may not work as intended");
+          }
+          function setCoords(position){
+            lat = position.coords.latitude;
+            long = position.coords.longitude;
+            resolve();
+          }
+        });
+        await locationPromise;
+        callback();
+      }
+
+      //Function to get weather and time from server
+      async function getWeather(callback){//Gets weather echoed from server.php
+        console.log('getting weather (2)');
+        var weatherRequest = new XMLHttpRequest();
+        let weatherPromise = new Promise((resolve, reject) => {
+          weatherRequest.onreadystatechange = function check(){
+            if(weatherRequest.readyState == 4 && weatherRequest.status == 200){
+              document.getElementById('weather').innerHTML = weatherRequest.responseText;
+              console.log('weather set to: ' + weatherRequest.responseText);
+              weather_time = weatherRequest.responseText;
+              resolve();
+            }
+          };
+        });
+        weatherRequest.open("GET", "getWeather.php?lat="+lat+"&long="+long, true);
+        weatherRequest.send();
+        await weatherPromise;
+        callback();
+      }
+
+      function getPlaylist(){//Gets Playlist echoed from server.php
+        console.log('getting Playlist (3)');
+        var PlaylistRequest = new XMLHttpRequest();
+        PlaylistRequest.onreadystatechange = function check(){
+          if(PlaylistRequest.readyState == 4 && PlaylistRequest.status == 200){
+            //Response text format: playlistName, playlistURL
+            var playlistInfo = PlaylistRequest.responseText.split(",");
+            document.getElementById('player').src = playlistInfo[1];
+            document.getElementById('currentPlaylist').innerHTML = 'Current playlist: '+playlistInfo[0];
+            console.log('Playlist set to: ' + playlistInfo[0]);
+          }
+        };
+        PlaylistRequest.open("GET", "server.php?wt="+weather_time, true);
+        PlaylistRequest.send();
+      }
+      </script>
     </body>
 </html>
