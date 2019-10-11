@@ -11,7 +11,7 @@ $lists = array(
   array("snowy", "PLcv1X7I5MHhYvXioGp8nW_IJYJJNK4zbq"),
   array("dark and rainy", "PLcv1X7I5MHhb_Tec17wug8uzp-DYeL-KD"),
   array("morning", "PLcv1X7I5MHhY7r3rQXm_PSPG6vdiTasrt"),
-  array("back-catalog", "PLcv1X7I5MHhb8thBLkAdGcJh89GQfRzqg")
+  array("zsch radio default", "PLcv1X7I5MHhZejsywOTK6i0LS5HP1u2Ps")
 );
 
 // Decide which playlist to play
