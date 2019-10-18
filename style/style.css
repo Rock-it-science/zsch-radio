@@ -1,11 +1,16 @@
-#player {
-  width:725px;
-  margin:0 auto;
-  background-color:white;
-  float:left;
+#container {
+  display: flex;
+  justify-content: center;
 }
-
+#player {
+  margin: auto;
+  width: 800px;
+  background-color:rgba(148, 148, 148, 0.5);
+  text-align: center;
+}
 #schedule {
-  background-color:white;
-  float:right;
+  margin: auto, 50px;
+  width: 20%;
+  padding: 10px;
+  background-color:rgba(148, 148, 148, 0.5);
 }
