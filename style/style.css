@@ -1,0 +1,11 @@
+#player {
+  width:725px;
+  margin:0 auto;
+  background-color:white;
+  float:left;
+}
+
+#schedule {
+  background-color:white;
+  float:right;
+}

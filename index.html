@@ -1,103 +1,114 @@
 <!DOCTYPE html>
 <meta charset="utf-8"/>
 <html>
-    <body>
-      <div id='content' style="width:724px; margin:0 auto; background-color: white">
-        <iframe id='player' width='720' height='360' src=""></iframe>
-        <p id='weather'>Weather</p>
-        <p id='currentPlaylist'>Please accept location access request</p>
-      </div>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+  </head>
+  <body>
 
-      <script>
+    <!--player-->
+    <div id='player'>
+      <iframe id='player' height="400" src=""></iframe>
+      <p id='weather'>Weather</p>
+      <p id='currentPlaylist'>Please accept location access request</p>
+    </div>
 
-      var weather_time; //Global variable to contain current weather and time
-      var lat, long; //Globals for geo coords
+    <!--Schedule-->
+    <div id='schedule'>
+      <h2>Upcoming Shows</h2>
 
-      //Starting functions, with callback to call getURL (sorrt for the callback hell)
-      getLocation(function(){
-        console.log('lat: '+lat+', long: '+long);
-        getWeather(function(){
-          console.log("weather, time: " + weather_time);
-          getPlaylist();
-        });
+    </div>
+
+    <script>
+
+    var weather_time; //Global variable to contain current weather and time
+    var lat, long; //Globals for geo coords
+
+    //Starting functions, with callback to call getURL (sorrt for the callback hell)
+    getLocation(function(){
+      console.log('lat: '+lat+', long: '+long);
+      getWeather(function(){
+        console.log("weather, time: " + weather_time);
+        getPlaylist();
       });
+    });
 
-      //Get geo coordinates of user
-      async function getLocation(callback){
-        console.log('getting location (1)');
-        let locationPromise = new Promise((resolve, reject) => {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(setCoords);
-          } else {
-            window.alert("Geolocation is not supported by this browser. Some features may not work as intended");
-          }
-          function setCoords(position){
-            lat = position.coords.latitude;
-            long = position.coords.longitude;
+    //Get geo coordinates of user
+    async function getLocation(callback){
+      console.log('getting location (1)');
+      let locationPromise = new Promise((resolve, reject) => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(setCoords);
+        } else {
+          window.alert("Geolocation is not supported by this browser. Some features may not work as intended");
+        }
+        function setCoords(position){
+          lat = position.coords.latitude;
+          long = position.coords.longitude;
+          resolve();
+        }
+      });
+      await locationPromise;
+      callback();
+    }
+
+    //Function to get weather and time from server
+    async function getWeather(callback){//Gets weather echoed from server.php
+      console.log('getting weather (2)');
+      var weatherRequest = new XMLHttpRequest();
+      let weatherPromise = new Promise((resolve, reject) => {
+        weatherRequest.onreadystatechange = function check(){
+          if(weatherRequest.readyState == 4 && weatherRequest.status == 200){
+            document.getElementById('weather').innerHTML = weatherRequest.responseText;
+            console.log('weather set to: ' + weatherRequest.responseText);
+            weather_time = weatherRequest.responseText;
+            setBackground(weather_time); //doesn't need to be part ofthe async callback chain
             resolve();
           }
-        });
-        await locationPromise;
-        callback();
-      }
-
-      //Function to get weather and time from server
-      async function getWeather(callback){//Gets weather echoed from server.php
-        console.log('getting weather (2)');
-        var weatherRequest = new XMLHttpRequest();
-        let weatherPromise = new Promise((resolve, reject) => {
-          weatherRequest.onreadystatechange = function check(){
-            if(weatherRequest.readyState == 4 && weatherRequest.status == 200){
-              document.getElementById('weather').innerHTML = weatherRequest.responseText;
-              console.log('weather set to: ' + weatherRequest.responseText);
-              weather_time = weatherRequest.responseText;
-              setBackground(weather_time); //doesn't need to be part ofthe async callback chain
-              resolve();
-            }
-          };
-        });
-        weatherRequest.open("GET", "getWeather.php?lat="+lat+"&long="+long, true);
-        weatherRequest.send();
-        await weatherPromise;
-        callback();
-      }
-
-      function getPlaylist(){//Gets Playlist echoed from server.php
-        console.log('getting Playlist (3)');
-        var PlaylistRequest = new XMLHttpRequest();
-        PlaylistRequest.onreadystatechange = function check(){
-          if(PlaylistRequest.readyState == 4 && PlaylistRequest.status == 200){
-            //Response text format: playlistName, playlistURL
-            var playlistInfo = PlaylistRequest.responseText.split(",");
-            document.getElementById('player').src = playlistInfo[1];
-            document.getElementById('currentPlaylist').innerHTML = 'Current playlist: '+playlistInfo[0];
-            console.log('Playlist set to: ' + playlistInfo[0]);
-          }
         };
-        PlaylistRequest.open("GET", "server.php?wt="+weather_time, true);
-        PlaylistRequest.send();
-      }
+      });
+      weatherRequest.open("GET", "getWeather.php?lat="+lat+"&long="+long, true);
+      weatherRequest.send();
+      await weatherPromise;
+      callback();
+    }
 
-      function setBackground(wt){
-        //Split wt
-        var wtarr = wt.split(',');
-        var weather = wtarr[0];
-        var time = wtarr[1];
-
-        //Determine day/night
-        var dn; //Day/night
-        if(time > 6 && time < 18){
-          dn = 'day';
-        } else{
-          dn = 'night';
+    function getPlaylist(){//Gets Playlist echoed from server.php
+      console.log('getting Playlist (3)');
+      var PlaylistRequest = new XMLHttpRequest();
+      PlaylistRequest.onreadystatechange = function check(){
+        if(PlaylistRequest.readyState == 4 && PlaylistRequest.status == 200){
+          //Response text format: playlistName, playlistURL
+          var playlistInfo = PlaylistRequest.responseText.split(",");
+          document.getElementById('player').src = playlistInfo[1];
+          document.getElementById('currentPlaylist').innerHTML = 'Current playlist: '+playlistInfo[0];
+          console.log('Playlist set to: ' + playlistInfo[0]);
         }
+      };
+      PlaylistRequest.open("GET", "server.php?wt="+weather_time, true);
+      PlaylistRequest.send();
+    }
 
-        //Get background image path
-        var bgPath = '/backgrounds/'+dn+'/'+weather.toLowerCase()+'.jpg';
-        console.log(bgPath);
-        document.body.style.backgroundImage = 'url(\''+bgPath+'\')';
-        document.body.style.backgroundSize = 'cover';
+    function setBackground(wt){
+      //Split wt
+      var wtarr = wt.split(',');
+      var weather = wtarr[0];
+      var time = wtarr[1];
+
+      //Determine day/night
+      var dn; //Day/night
+      if(time > 6 && time < 18){
+        dn = 'day';
+      } else{
+        dn = 'night';
       }
-      </script>
-    </body>
+
+      //Get background image path
+      var bgPath = '/backgrounds/'+dn+'/'+weather.toLowerCase()+'.jpg';
+      console.log(bgPath);
+      document.body.style.backgroundImage = 'url(\''+bgPath+'\')';
+      document.body.style.backgroundSize = 'cover';
+    }
+    </script>
+  </body>
 </html>
