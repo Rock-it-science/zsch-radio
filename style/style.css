@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
 }
-#player {
+#player-div {
   margin: auto;
   width: 800px;
   background-color:rgba(148, 148, 148, 0.5);
