@@ -5,18 +5,12 @@
     <link rel="stylesheet" type="text/css" href="style/style.css">
   </head>
   <body>
-    <div class='title-bar'>
-      <h1>ZSCH</h1>
-    </div>
-    <div class='nav-bar'>
-      <a href='index_old.html'>Dynamic YouTube embed (old version)</a>
-      <a href='about.html'>about</a>
-    </div>
     <div class='container'>
       <!--player-->
       <div class='player-div'>
-        Now playing:
-        <audio controls src="http://3.135.130.105:8000/stream.mp3"></audio>
+        <iframe id='player' width='720' height='480' src=""></iframe>
+        <p id='weather'>Weather</p>
+        <p id='currentPlaylist'>Please accept location access request</p>
       </div>
 
       <!--Schedule-->
@@ -36,6 +30,7 @@
       console.log('lat: '+lat+', long: '+long);
       getWeather(function(){
         console.log("weather, time: " + weather_time);
+        getPlaylist();
       });
     });
 
@@ -77,6 +72,22 @@
       weatherRequest.send();
       await weatherPromise;
       callback();
+    }
+
+    function getPlaylist(){//Gets Playlist echoed from server.php
+      console.log('getting Playlist (3)');
+      var PlaylistRequest = new XMLHttpRequest();
+      PlaylistRequest.onreadystatechange = function check(){
+        if(PlaylistRequest.readyState == 4 && PlaylistRequest.status == 200){
+          //Response text format: playlistName, playlistURL
+          var playlistInfo = PlaylistRequest.responseText.split(",");
+          document.getElementById('player').src = playlistInfo[1];
+          document.getElementById('currentPlaylist').innerHTML = 'Current playlist: '+playlistInfo[0];
+          console.log('Playlist set to: ' + playlistInfo[0]);
+        }
+      };
+      PlaylistRequest.open("GET", "server.php?wt="+weather_time, true);
+      PlaylistRequest.send();
     }
 
     function setBackground(wt){

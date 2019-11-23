@@ -1,16 +1,51 @@
-#container {
+.container {
   display: flex;
   justify-content: center;
 }
-#player-div {
+.player-div {
   margin: auto;
   width: 800px;
   background-color:rgba(148, 148, 148, 0.5);
   text-align: center;
 }
-#schedule {
+.schedule {
   margin: auto, 50px;
   width: 20%;
   padding: 10px;
   background-color:rgba(148, 148, 148, 0.5);
+}
+
+.title-bar {
+  background-color: #000000;
+  text-align: center;
+}
+
+.title-bar h1 {
+  color: #ffffff;
+}
+
+.nav-bar {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.nav-bar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.nav-bar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
 }
