@@ -1,0 +1,6 @@
+Aotw - replays (1 per day?)
+Aotw - current (played once per day)
+Radio shows - replays (two per day?)
+Radio shows - premier (Saturday noon)
+Sotd - played a few times throughout each day (fetch this automatically?)
+Other playlists - PLayed when nothing else is being played
