@@ -13,10 +13,14 @@
       <a href='about.html'>about</a>
     </div>
     <div class='container'>
+
       <!--player-->
       <div class='player-div'>
-        Now playing:
         <audio controls src="http://3.135.130.105:8000/stream.mp3"></audio>
+        <!-- Now playing info -->
+        <div class='now playing'>
+          <p id='np-text'></p>
+        </div>
       </div>
 
       <!-- Schedule -->
@@ -53,5 +57,20 @@
           </tr>
         </table>
       </div>
+    </div>
+
+    <script>
+    getNp();
+    function getNp() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("np-text").innerHTML = this.responseText;
+          }
+      };
+      xmlhttp.open("GET", "getNowPlaying.php", true);
+      xmlhttp.send();
+    }
+    </script>
   </body>
 </html>
