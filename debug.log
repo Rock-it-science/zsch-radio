@@ -1,0 +1,399 @@
+2020-01-18 08:15:33 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 08:15:33 data received: Array
+(
+    [artist] => ween
+    [title] => The Stallion (Part 2)
+    [album] => The Pod
+    [songid] => 1600
+    [cover] => 
+    [year] => 0
+    [listeners] => 0
+    [duration] => 04:32
+    [songtype] => 0
+    [categoryid] => 35
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 08:15:57 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 08:15:57 data received: Array
+(
+    [artist] => ween
+    [title] => exactly where i'm at
+    [album] => White Pepper
+    [songid] => 1601
+    [cover] => 
+    [year] => 0
+    [listeners] => 0
+    [duration] => 04:23
+    [songtype] => 0
+    [categoryid] => 35
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 08:20:21 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 08:20:21 data received: Array
+(
+    [artist] => ween
+    [title] => Moving Away
+    [album] => The Pod
+    [songid] => 1597
+    [cover] => 
+    [year] => 0
+    [listeners] => 0
+    [duration] => 02:59
+    [songtype] => 0
+    [categoryid] => 35
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:00:00 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:00:00 data received: Array
+(
+    [artist] => ????
+    [title] => ????
+    [album] => ???
+    [songid] => 1659
+    [cover] => 
+    [year] => 1976
+    [listeners] => 0
+    [duration] => 03:10
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:03:11 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:03:11 data received: Array
+(
+    [artist] => Aunt Sally
+    [title] => ???
+    [album] => Aunt Sally
+    [songid] => 1660
+    [cover] => 
+    [year] => 1979
+    [listeners] => 0
+    [duration] => 01:44
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:04:56 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:04:56 data received: Array
+(
+    [artist] => ?????? (Mikan Mukku)
+    [title] => ?
+    [album] => ????????? ???
+    [songid] => 1661
+    [cover] => 
+    [year] => 1986
+    [listeners] => 0
+    [duration] => 02:50
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:07:46 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:07:46 data received: Array
+(
+    [artist] => Aihiyo
+    [title] => ??? ??? ???
+    [album] => Aihiyo
+    [songid] => 1662
+    [cover] => 
+    [year] => 1998
+    [listeners] => 0
+    [duration] => 04:23
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:12:09 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:12:09 data received: Array
+(
+    [artist] => ???????
+    [title] => ??
+    [album] => ???????
+    [songid] => 1663
+    [cover] => 
+    [year] => 1989
+    [listeners] => 0
+    [duration] => 01:59
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:14:09 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:14:09 data received: Array
+(
+    [artist] => hoahio
+    [title] => jellyfish
+    [album] => ohayo! hoahio!
+    [songid] => 1664
+    [cover] => 
+    [year] => 2000
+    [listeners] => 0
+    [duration] => 02:41
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:16:51 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:16:51 data received: Array
+(
+    [artist] => Kim Jung Mi
+    [title] => ??? ???
+    [album] => Now
+    [songid] => 1665
+    [cover] => 
+    [year] => 1973
+    [listeners] => 0
+    [duration] => 01:48
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:18:39 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:18:39 data received: Array
+(
+    [artist] => (Sandy) Alex G
+    [title] => Forever
+    [album] => Live at Third Man Records
+    [songid] => 1666
+    [cover] => 
+    [year] => 2018
+    [listeners] => 0
+    [duration] => 02:13
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:20:53 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:20:53 data received: Array
+(
+    [artist] => (Sandy) Alex G
+    [title] => Brick
+    [album] => Live at Third Man Records
+    [songid] => 1667
+    [cover] => 
+    [year] => 2018
+    [listeners] => 0
+    [duration] => 00:59
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:21:53 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:21:53 data received: Array
+(
+    [artist] => Sorry about my face
+    [title] => dsa
+    [album] => demo-recording-shit
+    [songid] => 1668
+    [cover] => 
+    [year] => 2019
+    [listeners] => 0
+    [duration] => 02:57
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:24:51 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:24:51 data received: Array
+(
+    [artist] => THM
+    [title] => KUSOMI2
+    [album] => A KUSOIKORE ALBUM
+    [songid] => 1669
+    [cover] => 
+    [year] => 2019
+    [listeners] => 0
+    [duration] => 02:31
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:27:22 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:27:22 data received: Array
+(
+    [artist] => Sewerslvt
+    [title] => Pretty Cvnt
+    [album] => Sewer//Slvt - EP
+    [songid] => 1670
+    [cover] => 
+    [year] => 2018
+    [listeners] => 0
+    [duration] => 03:29
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:30:52 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:30:52 data received: Array
+(
+    [artist] => Cutie Tooth
+    [title] => hadThem angrly.
+    [album] => My Internet Boyfriend Killed Himself
+    [songid] => 1671
+    [cover] => 
+    [year] => 2019
+    [listeners] => 0
+    [duration] => 01:13
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-18 21:32:05 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-18 21:32:05 data received: Array
+(
+    [artist] => Japshitfun
+    [title] => Everyone On 4chan Is A Fake
+    [album] => Lolicore Ruined My Life
+    [songid] => 1672
+    [cover] => 
+    [year] => 2009
+    [listeners] => 0
+    [duration] => 00:35
+    [songtype] => 0
+    [categoryid] => 37
+    [station] => zsch Radio
+    [slogan] => 
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-28 03:04:50 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-28 03:04:50 data received: Array
+(
+    [artist] => Ween
+    [title] => Transitions
+    [album] => Shinola: Vol. 1
+    [songid] => 1554
+    [cover] => 
+    [year] => 2005
+    [listeners] => 0
+    [duration] => 03:41
+    [songtype] => 0
+    [categoryid] => 35
+    [station] => zsch Radio
+    [slogan] => Your Station Slogan
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-28 03:06:13 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-28 03:06:13 data received: Array
+(
+    [artist] => Venetian Snares
+    [title] => One Eye
+    [album] => Shitfuckers!!!
+    [songid] => 1203
+    [cover] => 
+    [year] => 2001
+    [listeners] => 0
+    [duration] => 04:10
+    [songtype] => 0
+    [categoryid] => 32
+    [station] => zsch Radio
+    [slogan] => Your Station Slogan
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-28 03:11:04 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-28 03:11:04 data received: Array
+(
+    [artist] => ween
+    [title] => Freedom of '76
+    [album] => Chocolate and Cheese
+    [songid] => 1457
+    [cover] => 
+    [year] => 0
+    [listeners] => 0
+    [duration] => 02:40
+    [songtype] => 0
+    [categoryid] => 35
+    [station] => zsch Radio
+    [slogan] => Your Station Slogan
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-01-28 03:25:47 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-28 03:25:47 data received: Array
+(
+    [artist] => Ween
+    [title] => Israel
+    [album] => Shinola: Vol. 1
+    [songid] => 1555
+    [cover] => 
+    [year] => 2005
+    [listeners] => 0
+    [duration] => 03:38
+    [songtype] => 0
+    [categoryid] => 35
+    [station] => zsch Radio
+    [slogan] => Your Station Slogan
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
