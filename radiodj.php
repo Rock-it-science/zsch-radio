@@ -4,7 +4,7 @@
 require_once 'config.php';
 
 if( $_SERVER['REQUEST_METHOD'] != 'POST' ) {
-	header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed', 405, true); 
+	header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed', 405, true);
 	http_response_code(405);
 	exit('This script accepts only POST requests');
 }
@@ -17,13 +17,13 @@ function postvar( $var, $default = null ) {
 }
 
 if( postvar('xpwd') == $XPWD ) {
-	
+
 	if ( !empty($allowed_track_types) && !in_array(postvar('songtype', -1), $allowed_track_types) ) {
 		exit('Track type '.postvar('songtype').' not allowed');
 	}
-	
+
 	$album_art = postvar('cover');
-	
+
 	// Check if album art exists on update and generate full URL, so we don't have to check it every time the display.php is requested by visitor
 	if( !empty($album_art) && file_exists($album_art_PATH . $album_art) ) {
 		$album_art = $album_art_URL . $album_art;
@@ -54,9 +54,13 @@ if( postvar('xpwd') == $XPWD ) {
 	if( DEBUG ) {
 		file_put_contents( 'debug.log', date('Y-m-d H:i:s').' data received: '.print_r($data_to_save, true)."\n", FILE_APPEND );
 	}
-	
+
 	$datatest = serialize($data_to_save);
 	file_put_contents($data_file, $datatest);
 	echo 'Data successfully saved';
+}
+else{
+	$dataset = serialize('Unseccessful entry. xpwd=' . $XPWD);
+	file_put_context($data_file, $dataset);
 }
 ?>
