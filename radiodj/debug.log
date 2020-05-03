@@ -397,3 +397,79 @@
     [reqmessage] => $request_message
 )
 
+2020-01-28 04:09:06 album art file '../album_art/' does not exist. Using fallback image.
+2020-01-28 04:09:06 data received: Array
+(
+    [artist] => ween
+    [title] => I Play It Off Legit
+    [album] => Pure Guava
+    [songid] => 1520
+    [cover] => 
+    [year] => 0
+    [listeners] => 0
+    [duration] => 03:19
+    [songtype] => 0
+    [categoryid] => 35
+    [station] => zsch Radio
+    [slogan] => Your Station Slogan
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-02-01 06:24:24 album art file '../album_art/' does not exist. Using fallback image.
+2020-02-01 06:24:24 data received: Array
+(
+    [artist] => Hella
+    [title] => Let Your Heavies Out
+    [album] => There's No 666 In Outer Space
+    [songid] => 1406
+    [cover] => 
+    [year] => 2007
+    [listeners] => 0
+    [duration] => 05:44
+    [songtype] => 0
+    [categoryid] => 36
+    [station] => zsch Radio
+    [slogan] => Your Station Slogan
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-02-01 06:26:30 album art file '../album_art/' does not exist. Using fallback image.
+2020-02-01 06:26:30 data received: Array
+(
+    [artist] => Ween
+    [title] => Pollo Asado
+    [album] => 
+    [songid] => 1698
+    [cover] => 
+    [year] => 
+    [listeners] => 0
+    [duration] => 02:43
+    [songtype] => 0
+    [categoryid] => 39
+    [station] => zsch Radio
+    [slogan] => Your Station Slogan
+    [requester] => 
+    [reqmessage] => $request_message
+)
+
+2020-02-01 06:35:19 album art file '../album_art/' does not exist. Using fallback image.
+2020-02-01 06:35:19 data received: Array
+(
+    [artist] => Ween
+    [title] => Pollo Asado
+    [album] => It's a beautiful night for a walk on the beach, wouldn't you say? (Rock_it_science)
+    [songid] => 1698
+    [cover] => 
+    [year] => 
+    [listeners] => 0
+    [duration] => 02:43
+    [songtype] => 0
+    [categoryid] => 39
+    [station] => zsch Radio
+    [slogan] => Your Station Slogan
+    [requester] => 
+    [reqmessage] => $request_message
+)
+

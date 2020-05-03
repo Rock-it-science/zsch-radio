@@ -23,7 +23,7 @@
 								document.getElementById('nowPlaying').innerHTML = request.responseText;
 		         	}
 		      	}
-				    request.open('GET', 'getNowPlaying.php', true);
+				    request.open('GET', 'radiodj/getNowPlaying.php', true);
 				    request.send();
 					}, 5000);
 					</script>
@@ -33,7 +33,7 @@
     </div>
 
       <div class="footer">
-        <a href='index_old.html'>Dynamic YouTube embed (old version)</a>
+        <a href='dynamicYoutube/index_old.html'>Dynamic YouTube embed (old version)</a>
         <a href='about.html'>about</a>
       </div>
   </body>
